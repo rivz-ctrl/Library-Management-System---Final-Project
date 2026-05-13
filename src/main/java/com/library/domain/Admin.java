@@ -12,4 +12,8 @@ public class Admin extends User{
     public int getBorrowCap() {
         return 0;
     }
+
+    public String getAdminId() {
+        return adminId;
+    }
 }
