@@ -13,4 +13,13 @@ public abstract class Item {
         this.title = title;
         this.status = status;
     }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
 }
