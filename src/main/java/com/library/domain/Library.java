@@ -56,14 +56,21 @@ public class Library {
     }
 
     /**
-     * sorting
-     * @param itemId
-     * @return
+     * sorting item in library by ID
+     * @param itemId id searched for
+     * @return the searched item or null
      */
     private Item findItemById(String itemId) {
 
+        return null;
     }
 
 
+    public List<Item> getItems() {
+        return items;
+    }
 
+    public Map<String, User> getUsers() {
+        return users;
+    }
 }
