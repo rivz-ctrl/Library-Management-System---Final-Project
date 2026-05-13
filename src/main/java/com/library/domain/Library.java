@@ -59,7 +59,7 @@ public class Library {
         if(item == null) throw new InvalidInputException(("item doesnt exist:" + itemId));
 
         if(item.getStatus() != Item.ItemStatus.AVAILABLE){
-            throw new ItemNotAvailableException(item.getTitle() + "isnt available" + "currently:" + item.getStatus);
+            throw new ItemNotAvailableException(item.getTitle() + "isnt available" + "currently:" + item.getStatus());
         }
 
         if (!user.canBorrow(item)){
