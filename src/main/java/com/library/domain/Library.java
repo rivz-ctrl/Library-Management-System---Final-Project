@@ -62,6 +62,12 @@ public class Library {
             throw new ItemNotAvailableException(item.getTitle() + "isnt available" + "currently:" + item.getStatus);
         }
 
+        if (!user.canBorrow(item)){
+            throw new BorrowCapException(user.getUserName() + "you cant borrow this item, check borrow limit and item type");
+        }
+
+        item.setStatus(Item.ItemStatus.BORROWED);
+        user.getBorrowedItems().add(item);
     }
 
     /**
