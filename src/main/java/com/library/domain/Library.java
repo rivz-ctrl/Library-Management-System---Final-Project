@@ -94,7 +94,9 @@ public class Library {
      * @return the searched item or null
      */
     private Item findItemById(String itemId) {
-
+        for (Item item : items){
+            if(item.getItemId().equals(itemId)) return item;
+        }
         return null;
     }
 
