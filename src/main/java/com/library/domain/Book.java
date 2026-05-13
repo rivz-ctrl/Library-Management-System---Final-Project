@@ -15,7 +15,7 @@ public class Book extends Item{
 
     public boolean checkISBN() {
         if (isbn == null) return false;
-
+        return isbn.matches(ISBN_CODE);
     }
 
     @Override
