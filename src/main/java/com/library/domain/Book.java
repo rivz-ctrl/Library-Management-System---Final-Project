@@ -14,11 +14,8 @@ public class Book extends Item{
     }
 
     public boolean checkISBN() {
-        if (isbn == null) {
+        if (isbn == null) return false;
 
-        } else {
-
-        }
     }
 
     @Override
