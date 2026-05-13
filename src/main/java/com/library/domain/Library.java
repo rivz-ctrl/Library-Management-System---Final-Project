@@ -14,8 +14,13 @@ public class Library {
         this.users = users;
     }
 
+    /**
+     * adds item to library
+     * @param item item to be added
+     * @throws InvalidInputException if item == null
+     */
     public void addItem(Item item) throws InvalidInputException{
-        if (item = null) throw new InvalidInputException("Item cannot be null");
+        if (item == null) throw new InvalidInputException("Item cannot be null");
         items.add(item);
     }
 
