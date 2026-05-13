@@ -18,6 +18,18 @@ public class Book extends Item{
         return isbn.matches(ISBN_CODE);
     }
 
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
     @Override
     public String getItemInfo() {
         return "Book{" +
