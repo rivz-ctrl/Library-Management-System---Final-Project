@@ -25,4 +25,9 @@ public class Book extends Item{
     public String getItemInfo() {
         return "";
     }
+
+    @Override
+    public String toString() {
+        return getItemInfo();
+    }
 }
