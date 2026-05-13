@@ -11,6 +11,11 @@ public class Admin extends User{
     }
 
     @Override
+    public boolean canBorrow(Item item) {
+        return false;
+    }
+
+    @Override
     public int getBorrowCap() {
         return 0;
     }
