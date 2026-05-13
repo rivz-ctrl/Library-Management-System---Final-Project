@@ -11,7 +11,7 @@ public abstract class Item {
     public Item(String title, ItemStatus status) {
         this.itemId = String.format("%04d", nextId++);
         this.title = title;
-        this.status = status;
+        this.status = ItemStatus.AVAILABLE;
     }
 
     public String getItemId() {
