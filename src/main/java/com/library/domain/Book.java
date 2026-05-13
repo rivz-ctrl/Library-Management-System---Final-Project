@@ -1,4 +1,4 @@
 package com.library.domain;
 
-public class Book {
+public class Book extends Item{
 }

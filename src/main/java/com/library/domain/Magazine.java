@@ -1,4 +1,4 @@
 package com.library.domain;
 
-public class Magazine {
+public class Magazine extends Item{
 }
