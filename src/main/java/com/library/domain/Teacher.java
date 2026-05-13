@@ -2,7 +2,7 @@ package com.library.domain;
 
 public class Teacher extends User{
     private String teacherId;
-    private static final int MAX_BOOKS = 10;
+    private static final int MAX_ITEMS = 10;
 
 
     public Teacher(String userName, List<Item> borrowedItems, String teacherId) {
@@ -12,6 +12,6 @@ public class Teacher extends User{
 
     @Override
     public int getBorrowCap() {
-        return 0;
+        return MAX_ITEMS;
     }
 }
