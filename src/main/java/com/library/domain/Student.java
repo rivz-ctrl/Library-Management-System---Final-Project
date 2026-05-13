@@ -11,6 +11,10 @@ public class Student extends User{
 
     @Override
     public int getBorrowCap() {
-        return 0;
+        return MAX_BOOKS;
+    }
+
+    public String getStudentId() {
+        return studentId;
     }
 }
