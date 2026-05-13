@@ -22,4 +22,18 @@ public abstract class Item {
         return title;
     }
 
+    public abstract String getItemInfo();
+
+    public void setStatus(ItemStatus status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "itemId='" + itemId + '\'' +
+                ", title='" + title + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }
