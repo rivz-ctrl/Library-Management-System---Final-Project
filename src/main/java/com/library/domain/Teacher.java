@@ -14,4 +14,8 @@ public class Teacher extends User{
     public int getBorrowCap() {
         return MAX_ITEMS;
     }
+
+    public String getTeacherId() {
+        return teacherId;
+    }
 }
