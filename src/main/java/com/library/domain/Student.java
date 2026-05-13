@@ -12,6 +12,11 @@ public class Student extends User{
     }
 
     @Override
+    public boolean canBorrow(Item item) {
+        return borrowedItems.size() < MAX_BOOKS;
+    }
+
+    @Override
     public int getBorrowCap() {
         return MAX_BOOKS;
     }
