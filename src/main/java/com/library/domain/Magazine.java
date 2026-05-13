@@ -28,4 +28,9 @@ public class Magazine extends Item{
                 ", status=" + status +
                 '}';
     }
+
+    @Override
+    public String toString() {
+        return getItemInfo();
+    }
 }
