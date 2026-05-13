@@ -17,4 +17,15 @@ public class Magazine extends Item{
     public int getIssueNumber() {
         return issueNumber;
     }
+
+    @Override
+    public String getItemInfo() {
+        return "Magazine{" +
+                "publisher='" + publisher + '\'' +
+                ", issueNumber=" + issueNumber +
+                ", itemId='" + itemId + '\'' +
+                ", title='" + title + '\'' +
+                ", status=" + status +
+                '}';
+    }
 }
