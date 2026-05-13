@@ -1,5 +1,7 @@
 package com.library.domain;
 
+import java.util.ArrayList;
+
 public abstract class User {
 
     protected String userId;
@@ -11,6 +13,10 @@ public abstract class User {
     public User(String userId, String userName, List<Item> borrowedItems) {
         this.userId = String.format("%04d", nextId++);
         this.userName = userName;
-        this.borrowedItems = borrowedItems;
+        this.borrowedItems = new ArrayList<>();
     }
+
+    public abstract int getBorrowCap();
+
+
 }
