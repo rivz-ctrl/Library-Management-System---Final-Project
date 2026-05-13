@@ -1,7 +1,7 @@
 package com.library.domain.expections;
 
 public class ItemNotAvailableException extends Exception {
-    public ItemNotAvailableException(String msg) {
-        super(msg);
+    public ItemNotAvailableException(String message) {
+        super(message);
     }
 }
