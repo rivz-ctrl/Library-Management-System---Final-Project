@@ -13,6 +13,14 @@ public class Book extends Item{
         this.genre = genre;
     }
 
+    public boolean checkISBN() {
+        if (isbn == null) {
+
+        } else {
+
+        }
+    }
+
     @Override
     public String getItemInfo() {
         return "";
