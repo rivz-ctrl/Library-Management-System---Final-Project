@@ -46,6 +46,15 @@ public class Library {
 
     }
 
+    /**
+     * allows user to return item
+     * @param userId user trying to return
+     * @param itemId to be returned
+     */
+    public void returnItem(String userId, String itemId){
+
+    }
+
 
 
 }
