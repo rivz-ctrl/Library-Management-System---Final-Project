@@ -17,4 +17,13 @@ public class Student extends User{
     public String getStudentId() {
         return studentId;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "userName='" + userName + '\'' +
+                ", userId='" + userId + '\'' +
+                ", studentId='" + studentId + '\'' +
+                '}';
+    }
 }
