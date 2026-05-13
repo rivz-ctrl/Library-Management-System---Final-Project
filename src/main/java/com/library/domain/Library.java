@@ -32,9 +32,18 @@ public class Library {
     public void addUser(User user) throws InvalidInputException{
         if(user == null) throw new InvalidInputException("User cannot be = null");
         if (users.) {
-            throw  new InvalidInputException()
+            throw new InvalidInputException()
         }
         users.put(user)
+    }
+
+    /**
+     * allows user to borrow item
+     * @param userId trying to borrow
+     * @param itemId item to be borrowed
+     */
+    public void borrowItem(String userId, String itemId){
+
     }
 
 
