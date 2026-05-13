@@ -81,6 +81,11 @@ public class Library {
         Item item = findItemById(itemId);
         if(item == null) throw new InvalidInputException("item doesnt exist" + itemId);
 
+        boolean removed = user.getBorrowedItems().remove(item);
+        if(!removed) {
+            throw new InvalidInputException(item.getTitle() + "wasnt borrowed by" + user.getUserName());
+        }
+        item.setStatus(Item.ItemStatus.AVAILABLE);
     }
 
     /**
