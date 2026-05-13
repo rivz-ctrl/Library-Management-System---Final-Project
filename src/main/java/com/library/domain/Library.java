@@ -75,7 +75,11 @@ public class Library {
      * @param userId user trying to return
      * @param itemId to be returned
      */
-    public void returnItem(String userId, String itemId){
+    public void returnItem(String userId, String itemId) throws InvalidInputException{
+        User user = users.get(userId);
+        if(user == null) throw new InvalidInputException(("user doesnt exist" + userId));
+        Item item = findItemById(itemId);
+        if(item == null) throw new InvalidInputException("item doesnt exist" + itemId);
 
     }
 
