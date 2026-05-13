@@ -31,10 +31,10 @@ public class Library {
      */
     public void addUser(User user) throws InvalidInputException{
         if(user == null) throw new InvalidInputException("User cannot be = null");
-        if (users.) {
-            throw new InvalidInputException()
+        if (users.containsKey(user.getUserId())) {
+            throw new InvalidInputException("Id already exists:" + user.getUserId());
         }
-        users.put(user)
+        users.put(user.getUserId(), user);
     }
 
     /**
