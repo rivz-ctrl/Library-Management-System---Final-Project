@@ -5,9 +5,9 @@ public class Teacher extends User{
     private static final int MAX_BOOKS = 10;
 
 
-
-    public Teacher(String userName, List<Item> borrowedItems) {
+    public Teacher(String userName, List<Item> borrowedItems, String teacherId) {
         super(userName, borrowedItems);
+        this.teacherId = teacherId;
     }
 
     @Override
