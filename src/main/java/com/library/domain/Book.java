@@ -4,7 +4,7 @@ public class Book extends Item{
     private String isbn;
     private String author;
     private String genre;
-    private static final String ISBN_CODE = " ";
+    private static final String ISBN_CODE = "^97[89]\\d\\d\\d\\d\\d\\d\\d\\d\\d\\d$";
 
     public Book(String title, ItemStatus status, String isbn, String author, String genre) {
         super(title, status);
@@ -23,7 +23,14 @@ public class Book extends Item{
 
     @Override
     public String getItemInfo() {
-        return "";
+        return "Book{" +
+                "isbn='" + isbn + '\'' +
+                ", author='" + author + '\'' +
+                ", genre='" + genre + '\'' +
+                ", itemId='" + itemId + '\'' +
+                ", title='" + title + '\'' +
+                ", status=" + status +
+                '}';
     }
 
     @Override
