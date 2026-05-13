@@ -14,6 +14,12 @@ public abstract class Item {
         this.status = ItemStatus.AVAILABLE;
     }
 
+    public enum ItemStatus{
+        AVAILABLE,
+        BORROWED,
+        MISSING
+    }
+
     public String getItemId() {
         return itemId;
     }
