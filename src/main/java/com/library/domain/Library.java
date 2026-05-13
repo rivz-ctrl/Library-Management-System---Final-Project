@@ -13,7 +13,9 @@ public class Library {
     }
 
     public void addItem(Item item) throws InvalidInputException{
-        if (item =)
+        if (item = null){
+
+        }
     }
 
 }
