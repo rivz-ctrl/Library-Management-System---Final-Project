@@ -1,6 +1,8 @@
 package com.library.domain;
 
+import com.library.domain.exceptions.BorrowCapException;
 import com.library.domain.exceptions.InvalidInputException;
+import com.library.domain.exceptions.ItemNotAvailableException;
 
 import java.util.List;
 import java.util.Map;
@@ -43,7 +45,10 @@ public class Library {
      * @param itemId item to be borrowed
      */
     public void borrowItem(String userId, String itemId){
+        throws InvalidInputException, ItemNotAvailableException, BorrowCapException {
+            User user = users.get(userId);
 
+        }
     }
 
     /**
