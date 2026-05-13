@@ -13,6 +13,7 @@ public class Student extends User{
 
     @Override
     public boolean canBorrow(Item item) {
+        if (!(item instanceof Book)) return false;
         return borrowedItems.size() < MAX_BOOKS;
     }
 
