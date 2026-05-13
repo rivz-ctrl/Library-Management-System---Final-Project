@@ -1,4 +1,4 @@
-package com.library.domain.expections;
+package com.library.domain.exceptions;
 
 public class InvalidInputException extends Exception{
     public InvalidInputException(String message) {
