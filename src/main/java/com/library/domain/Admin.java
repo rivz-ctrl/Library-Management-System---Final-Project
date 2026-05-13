@@ -1,8 +1,11 @@
 package com.library.domain;
 
 public class Admin extends User{
-    public Admin(String userName, List<Item> borrowedItems) {
+    private String adminId;
+
+    public Admin(String userName, List<Item> borrowedItems, String adminId) {
         super(userName, borrowedItems);
+        this.adminId = adminId;
     }
 
     @Override
