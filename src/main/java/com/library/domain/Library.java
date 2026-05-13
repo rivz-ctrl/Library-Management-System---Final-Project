@@ -4,12 +4,19 @@ import com.library.domain.exceptions.BorrowCapException;
 import com.library.domain.exceptions.InvalidInputException;
 import com.library.domain.exceptions.ItemNotAvailableException;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Library {
     private List<Item> items;
     private Map<String, User> users;
+
+    public Library(){
+        this.items = new ArrayList<>();
+        this.users = new HashMap<>();
+    }
 
     public Library(List<Item> items, Map<String, User> users) {
         this.items = items;
@@ -48,6 +55,8 @@ public class Library {
         throws InvalidInputException, ItemNotAvailableException, BorrowCapException {
             User user = users.get(userId);
             if(user == null) throw new InvalidInputException("user doesnt exist:" + userId);
+
+            Item item = findItemById(itemId);
         }
     }
 
