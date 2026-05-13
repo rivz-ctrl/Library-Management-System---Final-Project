@@ -24,4 +24,12 @@ public class Library {
         items.add(item);
     }
 
+    public void addUser(User user) throws InvalidInputException{
+        if(user == null) throw new InvalidInputException("User cannot be = null");
+        if (users.) {
+            throw  new InvalidInputException()
+        }
+        users.put(user)
+    }
+
 }
