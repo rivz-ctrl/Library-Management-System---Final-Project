@@ -17,6 +17,11 @@ public abstract class User {
         this.borrowedItems = new ArrayList<>();
     }
 
+    /**
+     * checks if user allowed to borrow
+     * @param item item to be borrowed
+     * @return whether item can be borrowed
+     */
     public abstract boolean canBorrow(Item item);
 
     public abstract int getBorrowCap();
