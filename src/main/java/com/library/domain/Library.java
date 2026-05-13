@@ -47,7 +47,7 @@ public class Library {
     public void borrowItem(String userId, String itemId){
         throws InvalidInputException, ItemNotAvailableException, BorrowCapException {
             User user = users.get(userId);
-
+            if(user == null) throw new InvalidInputException("user doesnt exist:" + userId);
         }
     }
 
