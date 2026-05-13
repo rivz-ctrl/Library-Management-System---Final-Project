@@ -12,5 +12,8 @@ public class Library {
         this.users = users;
     }
 
+    public void addItem(Item item) throws InvalidInputException{
+        if (item =)
+    }
 
 }
