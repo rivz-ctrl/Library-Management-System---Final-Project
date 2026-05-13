@@ -13,6 +13,11 @@ public class Teacher extends User{
     }
 
     @Override
+    public boolean canBorrow(Item item) {
+        return borrowedItems.size() < MAX_ITEMS;
+    }
+
+    @Override
     public int getBorrowCap() {
         return MAX_ITEMS;
     }
