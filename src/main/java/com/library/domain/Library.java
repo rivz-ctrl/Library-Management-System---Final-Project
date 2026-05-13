@@ -1,5 +1,7 @@
 package com.library.domain;
 
+import com.library.domain.exceptions.InvalidInputException;
+
 import java.util.List;
 import java.util.Map;
 
@@ -13,9 +15,8 @@ public class Library {
     }
 
     public void addItem(Item item) throws InvalidInputException{
-        if (item = null){
-
-        }
+        if (item = null) throw new InvalidInputException("Item cannot be null");
+        items.add(item);
     }
 
 }
