@@ -17,4 +17,20 @@ public class DVD extends Item{
     public int getDuration() {
         return duration;
     }
+
+    @Override
+    public String getItemInfo() {
+        return "DVD{" +
+                "director='" + director + '\'' +
+                ", duration=" + duration +
+                ", itemId='" + itemId + '\'' +
+                ", title='" + title + '\'' +
+                ", status=" + status +
+                '}';
+    }
+
+    @Override
+    public String toString() {
+        return getItemInfo();
+    }
 }
