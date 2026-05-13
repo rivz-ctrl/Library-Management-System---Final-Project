@@ -28,6 +28,10 @@ public abstract class Item {
         return title;
     }
 
+    public ItemStatus getStatus() {
+        return status;
+    }
+
     public abstract String getItemInfo();
 
     public void setStatus(ItemStatus status) {

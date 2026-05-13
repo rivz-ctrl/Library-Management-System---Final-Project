@@ -51,13 +51,17 @@ public class Library {
      * @param userId trying to borrow
      * @param itemId item to be borrowed
      */
-    public void borrowItem(String userId, String itemId){
-        throws InvalidInputException, ItemNotAvailableException, BorrowCapException {
-            User user = users.get(userId);
-            if(user == null) throw new InvalidInputException("user doesnt exist:" + userId);
+    public void borrowItem(String userId, String itemId) throws InvalidInputException, ItemNotAvailableException, BorrowCapException {
+        User user = users.get(userId);
+        if(user == null) throw new InvalidInputException("user doesnt exist:" + userId);
 
-            Item item = findItemById(itemId);
+        Item item = findItemById(itemId);
+        if(item == null) throw new InvalidInputException(("item doesnt exist:" + itemId));
+
+        if(item.getStatus() != Item.ItemStatus.AVAILABLE){
+            throw new ItemNotAvailableException(item.getTitle() + "isnt available" + "currently:" + item.getStatus);
         }
+
     }
 
     /**
