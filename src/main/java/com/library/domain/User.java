@@ -9,7 +9,7 @@ public abstract class User {
     protected String userName;
     protected List<Item> borrowedItems;
 
-    int nextId = 1;
+    static int nextId = 1;
 
     public User(String userName, List<Item> borrowedItems) {
         this.userId = String.format("%04d", nextId++);

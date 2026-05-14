@@ -2,9 +2,7 @@ package com.library.domain;
 
 import com.library.interfaces.Reportable;
 import com.library.util.CSVhandler;
-import org.w3c.dom.css.CSSValue;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
