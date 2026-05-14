@@ -2,6 +2,9 @@ package com.library.domain;
 
 import com.library.interfaces.Reportable;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 public class Admin extends User implements Reportable {
@@ -14,6 +17,10 @@ public class Admin extends User implements Reportable {
         this.library = library;
     }
 
+    /**
+     * creates a report with all the items according to their status
+     * @return the report as a string
+     */
     @Override
     public String makeReport() {
 
@@ -45,8 +52,19 @@ public class Admin extends User implements Reportable {
 
     @Override
     public void exportReport(String filePath) {
+        String report = makeReport();
 
+        try (FileWriter writer = new FileWriter(filePath)) {
+
+            writer.write(report);
+            System.out.println("report exported in:" + filePath);
+
+        } catch (IOException e){
+
+            System.err.println("report export failed:" + e.getMessage());
+        }
     }
+
 
     public Library getLibrary() {
         return library;
