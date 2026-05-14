@@ -142,6 +142,11 @@ public class Library {
                                 .collect(Collectors.toList())));
     }
 
+    /**
+     * searches for a book author
+     * @param author author searched
+     * @return list of unique books matching author search
+     */
     public List<Item> searchByAuthor(String author) {
         return items.stream()
                 .filter(item -> item instanceof Book)
