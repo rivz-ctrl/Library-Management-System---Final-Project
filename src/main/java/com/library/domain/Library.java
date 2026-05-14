@@ -185,6 +185,14 @@ public class Library {
      */
     public void sortUsers(Comparator<User> method) {
 
+        List<User> userList = new ArrayList<>(users.values());
+
+        userList.sort(method);
+        users.clear();
+
+        for (User user : userList) {
+            users.put(user.getUserId(), user);
+        }
     }
 
     public List<Item> getItems() {
