@@ -1,4 +1,6 @@
-9781254307141,Rest In Bass Book,Che,Music
-9781255307142,Drop Dead Gorgeous,Lone,Art
-9781256307143,Kill Your Idols,Bleeod,Philosophy
-9781257307144,For Nun,Pz,Swag School
+issueNumber,type,title,status,duration,director,isbn,publisher,author,genre
+,Book,Rest In Bass,AVAILABLE,,,9781254307141,,Che,Music
+,Book,Drop Dead Gorgeous,AVAILABLE,,,9781254307142,Opium,Lone,Art
+,Book,Kill Your Idols,AVAILABLE,,,9781254307143,,Bleeod,Philosophy
+,Book,From A Model To An Artist,AVAILABLE,,,9781254307144,OWAY,Pz,Swagology
+,Book,Drugs R Bad,AVAILABLE,,,9781254307145,,Lucki,Philosophy

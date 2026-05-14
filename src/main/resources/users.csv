@@ -1,11 +1,10 @@
-Bleeod, STUDENT
-Nine, STUDENT
-Che, STUDENT
-Pradabagshawty, STUDENT
-OsamaSon, TEACHER
-Carti, TEACHER
-Jeffery, ADMIN
-Future, ADMIN
+Type,userName,Id
+Student,Bleeod,S1001
+Student,Che,S1002
+Student,OsamaSon,S1003
+Teacher,Carti,T2001
+Admin,Jeffery,A3001
+
 
 
 
