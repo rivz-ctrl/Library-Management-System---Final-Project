@@ -4,10 +4,8 @@ import com.library.domain.exceptions.BorrowCapException;
 import com.library.domain.exceptions.InvalidInputException;
 import com.library.domain.exceptions.ItemNotAvailableException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Library {
     private List<Item> items;
@@ -125,6 +123,25 @@ public class Library {
             if (!addedAlr) results.add(current);
         }
         recursiveSearchByTitleHelper(title, items, index + 1, results);
+    }
+
+    /**
+     * seaches for items using stream
+     * @param title title searched for
+     * @return list of unique items matching search
+     */
+    public List<Item> streamSearchbyTitle(String title){
+        return items.stream()
+                .filter(item -> item.getTitle().toLowerCase().contains(title.toLowerCase()))
+                .collect(java.util.stream.Collectors.collectingAndThen(
+                        Collectors.toList(),
+                        list -> list.stream()
+                                .filter(item -> list.stream()
+                                        .noneMatch(other -> other != item
+                                                && other.getTitle().equalsIgnoreCase(item.getTitle()) &&
+
+                                                list.indexOf(other) < list.indexOf(item)))
+                                .collect(Collectors.toList())));
     }
 
     public List<Item> getItems() {
