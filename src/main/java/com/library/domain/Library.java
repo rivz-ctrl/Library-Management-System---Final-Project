@@ -3,6 +3,7 @@ package com.library.domain;
 import com.library.domain.exceptions.BorrowCapException;
 import com.library.domain.exceptions.InvalidInputException;
 import com.library.domain.exceptions.ItemNotAvailableException;
+import com.library.util.CSVhandler;
 
 import java.sql.ClientInfoStatus;
 import java.util.*;
@@ -160,6 +161,17 @@ public class Library {
                                 .collect(Collectors.toList())
                 ));
     }
+
+    /**
+     * loads items and users in CSV files to init library
+     * @param itemsFilePath path to items CSV
+     * @param usersFilePath path to users CSV
+     */
+    public void loadFromTheCSV(String itemsFilePath, String usersFilePath){
+        CSVhandler.loadItems(itemsFilePath, this);
+        CSVhandler.loadUsers(usersFilePath, this);
+    }
+
 
     public List<Item> getItems() {
         return items;

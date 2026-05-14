@@ -1,6 +1,8 @@
 package com.library.domain;
 
 import com.library.interfaces.Reportable;
+import com.library.util.CSVhandler;
+import org.w3c.dom.css.CSSValue;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -63,6 +65,16 @@ public class Admin extends User implements Reportable {
 
             System.err.println("report export failed:" + e.getMessage());
         }
+    }
+
+    /**
+     * backup current library to the CSV files
+     * @param itemsFilePath path to write items CSV
+     * @param usersFilePath path to write users CSV
+     */
+    public void backupToCSV(String itemsFilePath, String usersFilePath){
+        CSVhandler.backupItems(itemsFilePath, library);
+        CSVhandler.backupUsers(usersFilePath, library);
     }
 
 
