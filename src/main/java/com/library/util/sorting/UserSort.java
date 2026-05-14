@@ -21,4 +21,11 @@ public class UserSort {
     public static Comparator<User> byNameDesc() {
         return Comparator.comparing((User user) -> user.getUserName().toLowerCase()).reversed();
     }
+
+    /**
+     * Sorts users according to many items they borrowed, least amount of items to most amount of items
+     */
+    public static Comparator<User> byBorrowing() {
+        return Comparator.comparingInt(user -> user.getBorrowedItems().size());
+    }
 }
