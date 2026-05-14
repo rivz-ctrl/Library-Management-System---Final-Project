@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class UserTest {
@@ -34,4 +35,12 @@ public class UserTest {
     public void testStudent_canBorrowBook() {
         assertTrue(student.canBorrow(book));
     }
+
+    @Test
+    @DisplayName("Student canBorrow DVD => true")
+    public void testStudent_canBorrowDVD() {
+        assertFalse(student.canBorrow(book));
+    }
+
+
 }
