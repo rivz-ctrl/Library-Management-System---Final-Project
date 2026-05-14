@@ -37,8 +37,17 @@ public class UserTest {
     }
 
     @Test
-    @DisplayName("Student canBorrow DVD => true")
+    @DisplayName("Student canBorrow DVD => false")
     public void testStudent_canBorrowDVD() {
+        assertFalse(student.canBorrow(book));
+    }
+
+    @Test
+    @DisplayName("Student alr at 5 books canBorrow item => false")
+    public void testStudent_canBorrowWhenAlreadyAtCap() {
+        for (int i = 0; i < 5; i++) {
+            student.getBorrowedItems().add(new Book("Book"+i,Item.ItemStatus.BORROWED, "9781254307141", "Author", "Genre"));
+        }
         assertFalse(student.canBorrow(book));
     }
 
