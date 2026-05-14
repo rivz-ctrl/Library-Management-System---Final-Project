@@ -171,6 +171,21 @@ public class Library {
         CSVhandler.loadUsers(usersFilePath, this);
     }
 
+    /**
+     * sorts items in library using the chosen method
+     * @param method what to sort by
+     */
+    public void sortItems(Comparator<Item> method) {
+        items.sort(method);
+    }
+
+    /**
+     * sorts users of the library using the chosen method
+     * @param method what to sort by
+     */
+    public void sortUsers(Comparator<User> method) {
+
+    }
 
     public List<Item> getItems() {
         return items;
