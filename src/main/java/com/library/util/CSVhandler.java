@@ -3,9 +3,7 @@ package com.library.util;
 import com.library.domain.*;
 import com.library.domain.exceptions.InvalidInputException;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class CSVhandler {
@@ -118,7 +116,7 @@ public class CSVhandler {
                 return new DVD(title, status, f[ITEM_DIRECTOR], duration);
             }
             case "Magazine": {
-                int issueNumber = f[ITEM_ISSUE_NUMBER].isEmpty() ? 0 : Integer.parseInt(f[ITEM_ISSUE_NUMBER]);
+                int issueNumber = f[ITEM_ISSUE_NUM].isEmpty() ? 0 : Integer.parseInt(f[ITEM_ISSUE_NUM]);
                 return new Magazine(title, status, f[ITEM_PUBLISHER], issueNumber);
             }
             default:
@@ -156,6 +154,36 @@ public class CSVhandler {
         return "";
     }
 
+    public static void backupItems(String filePath, Library library) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write("issueNumber,type,title,status,duration,director,isbn,publisher,author,genre");
+            writer.newLine();
+
+            for (Item item : library.getItems()) {
+                writer.write(itemToCSV(item));
+                writer.newLine();
+            }
+            System.out.println("Items backed up to: " + filePath);
+        } catch (IOException e) {
+            System.err.println("Failed to backup items: " + e.getMessage());
+        }
+    }
+
+
+    public static void backupUsers(String filePath, Library library) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+            writer.write("type,userName,specificId");
+            writer.newLine();
+
+            for (User user : library.getUsers().values()) {
+                writer.write(userToCSV(user));
+                writer.newLine();
+            }
+            System.out.println("Users backed up to: " + filePath);
+        } catch (IOException e) {
+            System.err.println("Failed to backup users: " + e.getMessage());
+        }
+    }
 
 }
 
