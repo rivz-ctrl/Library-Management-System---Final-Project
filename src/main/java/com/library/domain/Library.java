@@ -100,6 +100,32 @@ public class Library {
         return null;
     }
 
+    /**
+     * searches for items by title recursively
+     * @param title title to be searched
+     * @return list of unique items matching the search
+     */
+    public List<Item> recursiveSearchByTitle(String title){
+        List<Item> results = new ArrayList<>();
+        recursiveSearchByTitleHelper(title.toLowerCase(), items, 0, results);
+        return results;
+    }
+
+    private void recursiveSearchByTitleHelper(String title, List<Item> items, int index, List<Item> results){
+        if(index >= items.size()) return;
+        Item current = items.get(index);
+        if(current.getTitle().toLowerCase().contains(title)){
+            boolean addedAlr = false;
+            for (Item r : results) {
+                if (r.getTitle().equalsIgnoreCase(current.getTitle())){
+                    addedAlr = true;
+                    break;
+                }
+            }
+            if (!addedAlr) results.add(current);
+        }
+        recursiveSearchByTitleHelper(title, items, index + 1, results);
+    }
 
     public List<Item> getItems() {
         return items;
