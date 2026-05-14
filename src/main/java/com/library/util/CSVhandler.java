@@ -8,21 +8,19 @@ import java.util.ArrayList;
 
 public class CSVhandler {
     private static final int ITEM_ISSUE_NUM = 0;
-    private static final int ITEM_ID        = 1;
-    private static final int ITEM_TYPE      = 2;
-    private static final int ITEM_TITLE     = 3;
-    private static final int ITEM_STATUS    = 4;
-    private static final int ITEM_DURATION  = 5;
-    private static final int ITEM_DIRECTOR  = 6;
-    private static final int ITEM_ISBN      = 7;
-    private static final int ITEM_PUBLISHER = 8;
-    private static final int ITEM_AUTHOR    = 9;
-    private static final int ITEM_GENRE     = 10;
+    private static final int ITEM_TYPE      = 1;
+    private static final int ITEM_TITLE     = 2;
+    private static final int ITEM_STATUS    = 3;
+    private static final int ITEM_DURATION  = 4;
+    private static final int ITEM_DIRECTOR  = 5;
+    private static final int ITEM_ISBN      = 6;
+    private static final int ITEM_PUBLISHER = 7;
+    private static final int ITEM_AUTHOR    = 8;
+    private static final int ITEM_GENRE     = 9;
 
-    private static final int USER_TYPE         = 1;
-    private static final int USER_NAME         = 2;
-    private static final int USER_SPECIFIC_ID  = 3;
-    private static final int USER_ID           = 4;
+    private static final int USER_TYPE         = 0;
+    private static final int USER_NAME         = 1;
+    private static final int USER_SPECIFIC_ID  = 2;
 
     private static User createUser(String[] f, Library library) throws InvalidInputException {
         if (f.length < 3) throw new InvalidInputException("Not enough columns in user row.");
