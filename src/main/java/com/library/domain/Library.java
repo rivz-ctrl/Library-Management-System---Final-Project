@@ -163,7 +163,7 @@ public class Library {
 
     /**
      * loads items and users in CSV files to init library
-     * @param itemsFilePath path to items CSV
+     * @param itemsFilePath path to items(books) CSV
      * @param usersFilePath path to users CSV
      */
     public void loadFromTheCSV(String itemsFilePath, String usersFilePath){
