@@ -22,6 +22,16 @@ public class ItemSort {
         return Comparator.comparing((Item item) -> item.getTitle().toLowerCase()).reversed();
     }
 
+    /**
+     * sorts items by their availability (available>borrowed>missing)
+     * @return sorting
+     */
+    public static Comparator<Item> byStatus(){
+        return Comparator.comparing(Item::getStatus);
+    }
+
+
+
 
 
 }
