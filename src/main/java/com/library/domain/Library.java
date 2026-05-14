@@ -4,6 +4,7 @@ import com.library.domain.exceptions.BorrowCapException;
 import com.library.domain.exceptions.InvalidInputException;
 import com.library.domain.exceptions.ItemNotAvailableException;
 
+import java.sql.ClientInfoStatus;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -137,16 +138,29 @@ public class Library {
                         Collectors.toList(),
                         list -> list.stream()
                                 .filter(item -> list.stream()
-                                        .noneMatch(other -> other != item
-                                                && other.getTitle().equalsIgnoreCase(item.getTitle()) &&
-
-                                                list.indexOf(other) < list.indexOf(item)))
+                                        .noneMatch(other -> other != item && other.getTitle().equalsIgnoreCase(item.getTitle()) && list.indexOf(other) < list.indexOf(item)))
                                 .collect(Collectors.toList())));
+    }
+
+    public List<Item> searchByAuthor(String author) {
+        return items.stream()
+                .filter(item -> item instanceof Book)
+                .map(item -> (Book) item)
+                .filter(book -> book.getAuthor().toLowerCase().contains(author.toLowerCase()))
+                .collect(java.util.stream.Collectors.collectingAndThen(
+                        Collectors.toList(),
+                        list -> list.stream()
+                                .filter(book -> list.stream()
+                                        .noneMatch(other -> other != book && other.getTitle().equalsIgnoreCase(book.getTitle()) && list.indexOf(other) < list.indexOf(book)))
+                                .collect(Collectors.toList())
+                ));
     }
 
     public List<Item> getItems() {
         return items;
     }
+
+
 
     public Map<String, User> getUsers() {
         return users;
