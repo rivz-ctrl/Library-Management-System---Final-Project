@@ -52,4 +52,31 @@ public class UserTest {
     }
 
 
+    @Test
+    @DisplayName("Student canBorrow Book => true")
+    public void testTeacher_canBorrowBook() {
+        assertTrue(teacher.canBorrow(book));
+    }
+
+    @Test
+    @DisplayName("Student canBorrow DVD => false")
+    public void testTeacher_canBorrowDVD() {
+        assertFalse(teacher.canBorrow(book));
+    }
+
+    @Test
+    @DisplayName("Student alr at 10 books canBorrow item => false")
+    public void testTeacher_canBorrowWhenAlreadyAtCap() {
+        for (int i = 0; i < 10; i++) {
+            teacher.getBorrowedItems().add(new Book("Book"+i,Item.ItemStatus.BORROWED, "9781254307141", "Author", "Genre"));
+        }
+        assertFalse(teacher.canBorrow(book));
+
+    }
+
+
+
+
+
+
 }
