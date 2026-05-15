@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 
 public class MagazineTest {
     @BeforeEach
-    void setUp() {
+    void preSetting() {
         Item.nextId = 1;
     }
 
