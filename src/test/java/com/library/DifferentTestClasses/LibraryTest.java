@@ -130,4 +130,16 @@ public class LibraryTest {
     }
 
 
+    @Test
+    @DisplayName("streamSearching rest still gives 1 unique result despite 2 copies existing")
+    public void testStreamSearchWithDuplicates() {
+        assertEquals(1, library.streamSearchbyTitle("rest").size());
+    }
+
+    @Test
+    @DisplayName("streamSearch for inexisting books gives []")
+    public void testStreamSearchFakeBook() {
+        assertTrue(library.streamSearchbyTitle("jajajajaja").isEmpty());
+    }
+
 }
