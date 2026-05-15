@@ -60,5 +60,17 @@ public class LibraryTest {
         assertThrows(InvalidInputException.class, () -> library.addUser(student));
     }
 
+    @Test
+    @DisplayName("invalid userId throws InvalidInputException")
+    public void testBorrowItemUserNotFound() {
+        assertThrows(InvalidInputException.class, () -> library.borrowItem("9567", book1.getItemId()));
+    }
+
+    @Test
+    @DisplayName("invalid itemId throws InvalidInputException")
+    public void testBorrowNotFoundItem() {
+        assertThrows(InvalidInputException.class, () -> library.borrowItem(student.getUserId(), "6767"));
+    }
+
 
 }
