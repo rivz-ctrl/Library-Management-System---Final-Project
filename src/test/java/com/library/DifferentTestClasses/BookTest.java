@@ -45,4 +45,12 @@ public class BookTest {
         Book book = new Book("null ISBN", Item.ItemStatus.AVAILABLE, null, "Author", "Genre");
         assertFalse(book.checkISBN());
     }
+
+    @Test
+    @DisplayName("change from available to borrowed")
+    public void testSettingStatus() {
+        Book book = new Book("Rest In Bass", Item.ItemStatus.AVAILABLE, "9781254307141", "Che", "Music");
+        book.setStatus(Item.ItemStatus.BORROWED);
+        assertEquals(Item.ItemStatus.BORROWED, book.getStatus());
+    }
 }
