@@ -9,6 +9,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -112,6 +113,20 @@ public class LibraryTest {
         library.returnItem(student.getUserId(), book1.getItemId());
         assertEquals(Item.ItemStatus.AVAILABLE, book1.getStatus());
         assertFalse(student.getBorrowedItems().contains(book1));
+    }
+
+    @Test
+    @DisplayName("recursiveSearch still gives 1 unique result despite 2 copies existing")
+    public void testRecursiveSearchWithDuplicates() {
+        List<Item> results = library.recursiveSearchByTitle("rest");
+        assertEquals(1, results.size());
+        assertEquals("Rest In Bass", results.get(0).getTitle());
+    }
+
+    @Test
+    @DisplayName("recursiveSearch for inexisting books gives []")
+    public void testRecursiveSearchFakeBook() {
+        assertTrue(library.recursiveSearchByTitle("gugugaga").isEmpty());
     }
 
 
