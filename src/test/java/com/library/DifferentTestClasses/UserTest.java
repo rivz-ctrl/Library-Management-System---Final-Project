@@ -60,8 +60,8 @@ public class UserTest {
 
     @Test
     @DisplayName("Student canBorrow DVD => false")
-    public void testTeacher_canBorrowDVD() {
-        assertFalse(teacher.canBorrow(book));
+    public void teststudent_canBorrowDVD() {
+        assertFalse(student.canBorrow(dvd));
     }
 
     @Test

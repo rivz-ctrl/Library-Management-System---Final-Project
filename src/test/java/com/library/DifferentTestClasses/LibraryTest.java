@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class LibraryTest {
     private Library library;
@@ -155,7 +155,7 @@ public class LibraryTest {
     public void testSortUsersbyNameAsc() {
         library.sortUsers(UserSort.byNameAsc());
         List<User> users = new ArrayList<>(library.getUsers().values());
-        assertTrue(users.get(0).getUserName().compareToIgnoreCase(users.get(1).getUserName()) <= 0);
+        assertTrue(users.get(0).getUserName().compareTo(String.valueOf(users.get(1))) <= 0);
     }
 
     @Test

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MagazineTest {
     @BeforeEach
@@ -18,7 +18,7 @@ public class MagazineTest {
     @DisplayName("Fader, issue 555")
     public void testCreatingMag() {
         Magazine magazine = new Magazine("Fader", Item.ItemStatus.AVAILABLE, "KTO", 555);
-        assertEquals("National Geographic", magazine.getTitle());
+        assertEquals("Fader", magazine.getTitle());
         assertEquals("KTO", magazine.getPublisher());
         assertEquals(555, magazine.getIssueNumber());
         assertEquals(Item.ItemStatus.AVAILABLE, magazine.getStatus());
