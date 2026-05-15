@@ -182,6 +182,27 @@ public class LibraryTest {
         assertTrue(users.get(0).getBorrowedItems().size() <= users.get(1).getBorrowedItems().size());
     }
 
+    @Test
+    @DisplayName("makeReport")
+    public void testMakeReportContainsAvailableSection() {
+        Admin admin = new Admin("Jeffery", new ArrayList<>(), "A3001", library);
+        assertTrue(admin.makeReport().contains("AVAILABLE"));
+    }
 
+    @Test
+    @DisplayName("makeReport after borrow")
+    public void testMakeReportContainsBorrowedSection() throws Exception {
+        Admin admin = new Admin("Jeffery", new ArrayList<>(), "A3001", library);
+        library.borrowItem(student.getUserId(), book1.getItemId());
+        assertTrue(admin.makeReport().contains("BORROWED"));
+    }
+
+    @Test
+    @DisplayName("makeReport with missing")
+    public void testMakeReportContainsMissing() {
+        Admin admin = new Admin("Jeffery", new ArrayList<>(), "A3001", library);
+        book2.setStatus(Item.ItemStatus.MISSING);
+        assertTrue(admin.makeReport().contains("MISSING"));
+    }
 
 }
