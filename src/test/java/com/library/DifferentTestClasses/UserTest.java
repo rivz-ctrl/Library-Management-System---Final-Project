@@ -74,6 +74,12 @@ public class UserTest {
 
     }
 
+    @Test
+    @DisplayName("Admin canBorrow Book =? false")
+    public void testAdmin_canBorrow() {
+        assertFalse(admin.canBorrow(book));
+    }
+
 
 
 
