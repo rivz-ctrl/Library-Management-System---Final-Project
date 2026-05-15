@@ -4,6 +4,7 @@ import com.library.domain.*;
 import com.library.domain.exceptions.BorrowCapException;
 import com.library.domain.exceptions.InvalidInputException;
 import com.library.domain.exceptions.ItemNotAvailableException;
+import com.library.util.sorting.UserSort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -140,6 +141,20 @@ public class LibraryTest {
     @DisplayName("streamSearch for inexisting books gives []")
     public void testStreamSearchFakeBook() {
         assertTrue(library.streamSearchbyTitle("jajajajaja").isEmpty());
+    }
+
+    @Test
+    @DisplayName("searchByAuthor when he doesnt exist -> []")
+    public void testSearchByFakeAuthor() {
+        assertTrue(library.searchByAuthor("John Cena").isEmpty());
+    }
+
+    @Test
+    @DisplayName("sortUsers byNameAsc puts Bleeod before Carti")
+    public void testSortUsersbyNameAsc() {
+        library.sortUsers(UserSort.byNameAsc());
+        List<User> users = new ArrayList<>(library.getUsers().values());
+        assertTrue(users.get(0).getUserName().compareToIgnoreCase(users.get(1).getUserName()) <= 0);
     }
 
 }
