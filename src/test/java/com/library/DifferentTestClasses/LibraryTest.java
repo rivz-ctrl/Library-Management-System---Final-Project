@@ -4,6 +4,7 @@ import com.library.domain.*;
 import com.library.domain.exceptions.BorrowCapException;
 import com.library.domain.exceptions.InvalidInputException;
 import com.library.domain.exceptions.ItemNotAvailableException;
+import com.library.util.sorting.ItemSort;
 import com.library.util.sorting.UserSort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -156,5 +157,31 @@ public class LibraryTest {
         List<User> users = new ArrayList<>(library.getUsers().values());
         assertTrue(users.get(0).getUserName().compareToIgnoreCase(users.get(1).getUserName()) <= 0);
     }
+
+    @Test
+    @DisplayName("sortItems byTitleAsc ")
+    public void testSortItemsbyTitleAsc() {
+        library.sortItems(ItemSort.byTitleAscend());
+        List<Item> items = library.getItems();
+        assertTrue(items.get(0).getTitle().compareToIgnoreCase(items.get(1).getTitle()) <= 0);
+    }
+    @Test
+    @DisplayName("sortItems byTitleDesc")
+    public void testSortItemsbyTitleDesc() {
+        library.sortItems(ItemSort.byTitleDescend());
+        List<Item> items = library.getItems();
+        assertTrue(items.get(0).getTitle().compareToIgnoreCase(items.get(1).getTitle()) >= 0);
+    }
+
+    @Test
+    @DisplayName("sortUsers byBorrowedCount")
+    public void testSortUsersBorrowedCount() throws Exception {
+        library.borrowItem(student.getUserId(), book1.getItemId());
+        library.sortUsers(UserSort.byBorrowing());
+        List<User> users = new ArrayList<>(library.getUsers().values());
+        assertTrue(users.get(0).getBorrowedItems().size() <= users.get(1).getBorrowedItems().size());
+    }
+
+
 
 }
