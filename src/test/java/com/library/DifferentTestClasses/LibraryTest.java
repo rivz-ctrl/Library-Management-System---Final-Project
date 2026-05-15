@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.*;
 
 public class LibraryTest {
     private Library library;
@@ -104,6 +103,15 @@ public class LibraryTest {
     public void testTeacherBorrowDVD() throws Exception {
         library.borrowItem(teacher.getUserId(), dvd.getItemId());
         assertEquals(Item.ItemStatus.BORROWED, dvd.getStatus());
+    }
+
+    @Test
+    @DisplayName("Bleeod returns Rest In Bass, status updates, not in borrowedItems")
+    public void testReturnItem() throws Exception {
+        library.borrowItem(student.getUserId(), book1.getItemId());
+        library.returnItem(student.getUserId(), book1.getItemId());
+        assertEquals(Item.ItemStatus.AVAILABLE, book1.getStatus());
+        assertFalse(student.getBorrowedItems().contains(book1));
     }
 
 
