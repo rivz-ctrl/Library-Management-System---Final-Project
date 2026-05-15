@@ -1,13 +1,16 @@
 package com.library.DifferentTestClasses;
 
 import com.library.domain.*;
+import com.library.domain.exceptions.BorrowCapException;
 import com.library.domain.exceptions.InvalidInputException;
+import com.library.domain.exceptions.ItemNotAvailableException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 
 public class LibraryTest {
@@ -70,6 +73,37 @@ public class LibraryTest {
     @DisplayName("invalid itemId throws InvalidInputException")
     public void testBorrowNotFoundItem() {
         assertThrows(InvalidInputException.class, () -> library.borrowItem(student.getUserId(), "6767"));
+    }
+
+    @Test
+    @DisplayName("item already borrowed throws ItemNotAvailableException")
+    public void testBorrowItem_NotAvailable() {
+        book1.setStatus(Item.ItemStatus.BORROWED);
+        assertThrows(ItemNotAvailableException.class, () -> library.borrowItem(student.getUserId(), book1.getItemId()));
+    }
+
+    @Test
+    @DisplayName("Student has hit cap of 5 books throws BorrowCapException")
+    public void testBorrowItem_studentCapped() throws Exception {
+        for (int i = 0; i < 5; i++) {
+            Book extra = new Book("Extra " + i, Item.ItemStatus.AVAILABLE, "9781254307141", "X", "Y");
+            library.addItem(extra);
+            library.borrowItem(student.getUserId(), extra.getItemId());
+        }
+        assertThrows(BorrowCapException.class, () -> library.borrowItem(student.getUserId(), book1.getItemId()));
+    }
+
+    @Test
+    @DisplayName("Student tries to borrow DVD throws BorrowCapException")
+    public void testStudentBorrowDVD() {
+        assertThrows(BorrowCapException.class, () -> library.borrowItem(student.getUserId(), dvd.getItemId()));
+    }
+
+    @Test
+    @DisplayName("Teacher borrow DVD updates status")
+    public void testTeacherBorrowDVD() throws Exception {
+        library.borrowItem(teacher.getUserId(), dvd.getItemId());
+        assertEquals(Item.ItemStatus.BORROWED, dvd.getStatus());
     }
 
 
