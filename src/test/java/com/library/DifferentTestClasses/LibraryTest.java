@@ -3,8 +3,12 @@ package com.library.DifferentTestClasses;
 import com.library.domain.*;
 import com.library.domain.exceptions.InvalidInputException;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+
+import static org.junit.Assert.assertThrows;
 
 public class LibraryTest {
     private Library library;
@@ -37,4 +41,24 @@ public class LibraryTest {
         library.addItem(book3);
         library.addItem(dvd);
     }
+
+    @Test
+    @DisplayName("adding null item throws InvalidInputException")
+    public void testAddItemNUll() {
+        assertThrows(InvalidInputException.class, () -> library.addItem(null));
+    }
+
+    @Test
+    @DisplayName("adding null user throws InvalidInputException")
+    public void testAddUserNull() {
+        assertThrows(InvalidInputException.class, () -> library.addUser(null));
+    }
+
+    @Test
+    @DisplayName("adding already existing user(same id) throws InvalidInputException")
+    public void testAddUserDupe() {
+        assertThrows(InvalidInputException.class, () -> library.addUser(student));
+    }
+
+
 }
